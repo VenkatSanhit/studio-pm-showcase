@@ -1,9 +1,11 @@
 import OpeningCredits from "@/components/OpeningCredits";
+import MetricsBoard from "@/components/MetricsBoard";
 import FeatureFilms from "@/components/FeatureFilms";
 import BehindTheScenes from "@/components/BehindTheScenes";
 import AwardsAndAccolades from "@/components/AwardsAndAccolades";
 import ComingSoon from "@/components/ComingSoon";
 import ContactSection from "@/components/ContactSection";
+import AIChat from "@/components/AIChat";
 
 const Index = () => {
   return (
@@ -13,11 +15,13 @@ const Index = () => {
       <div className="fixed bottom-0 left-0 right-0 h-4 bg-border/30 z-50 pointer-events-none" />
       
       <OpeningCredits />
+      <MetricsBoard />
       <FeatureFilms />
       <BehindTheScenes />
       <AwardsAndAccolades />
       <ComingSoon />
       <ContactSection />
+      <AIChat />
       
       {/* Footer */}
       <footer className="py-8 border-t border-border/50 bg-card/30 backdrop-blur">

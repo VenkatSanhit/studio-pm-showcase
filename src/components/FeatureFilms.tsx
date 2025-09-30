@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Star, TrendingUp, Users, Zap } from "lucide-react";
 
 interface Project {
@@ -12,27 +14,10 @@ interface Project {
   rating: number;
   reviews: string[];
   highlights: string[];
+  fullDescription?: string;
 }
 
 const projects: Project[] = [
-  {
-    title: "The Emotiles Revolution",
-    company: "Current Project",
-    period: "2025 - Present",
-    role: "Lead Product Manager",
-    tagline: "Bringing emotions to life, one subtitle at a time",
-    boxOffice: [
-      "Multilingual AI-powered subtitle platform",
-      "Enhanced cinema accessibility globally",
-      "Real-time emotion detection & visualization"
-    ],
-    rating: 5.0,
-    reviews: [
-      "Revolutionary approach to subtitle technology",
-      "Seamlessly blends AI with human emotion"
-    ],
-    highlights: ["AI/ML Integration", "Global Impact", "Innovation Award"]
-  },
   {
     title: "The Enterprise Accelerator",
     company: "Bulkmagic",
@@ -49,7 +34,23 @@ const projects: Project[] = [
       "Streamlined deployment cycles by 2 weeks",
       "Exceptional GTM strategy execution"
     ],
-    highlights: ["Agile Excellence", "GTM Strategy", "Dashboard Automation"]
+    highlights: ["Agile Excellence", "GTM Strategy", "Dashboard Automation"],
+    fullDescription: `Led comprehensive product management initiatives at Bulkmagic, managing complex go-live release schedules and coordinating with engineering, QA, and operations teams.
+
+Key Achievements:
+• Spearheaded Agile and Scrum ceremonies including sprint planning, backlog grooming, and roadmap prioritization using JIRA and Confluence
+• Resulted in a 22% increase in sprint velocity and delivery of 30+ prioritized backlog items within targeted timelines
+• Conducted extensive market research, competitor benchmarking, and customer journey analysis
+• Created Go-To-Market (GTM) strategies that drove a 15% improvement in customer acquisition rates
+• Developed and automated dashboards in Power BI using DAX queries and advanced Excel
+• Enabled executives to monitor KPIs across 7 business units while reducing manual reporting time from 3 days to 16 hours per cycle
+• Created wireframes, prototypes, and user flows using Balsamiq and Miro
+• Streamlined design collaboration across 5 product teams, cutting UI/UX validation cycles by 35%
+• Built quarterly product roadmaps incorporating AI and ML features including predictive maintenance and personalized recommendations
+• Led the development and GTM launch of an e-commerce MVP platform with referral-based incentive models
+• Successfully onboarded 600+ users in the first 3 months
+• Collaborated with technical architects to define API and telemetry integration requirements
+• Enabled scalability to handle 100k daily transactions while reducing latency issues by 30%`
   },
   {
     title: "The Logistics Transformer",
@@ -67,7 +68,27 @@ const projects: Project[] = [
       "Game-changing UI/UX transformation",
       "Data-driven monetization strategy"
     ],
-    highlights: ["Full Lifecycle Ownership", "A/B Testing", "UX Leadership"]
+    highlights: ["Full Lifecycle Ownership", "A/B Testing", "UX Leadership"],
+    fullDescription: `Defined and executed product roadmaps and sprint backlogs in JIRA/Confluence at Firstconnect World Wide, aligning engineering, operations, and logistics stakeholders.
+
+Key Achievements:
+• Accelerated MVP delivery by 3 sprints and improved cross-functional visibility across 4 core freight workflows
+• Owned the end-to-end lifecycle of a digital logistics platform serving both shippers and carriers
+• Streamlined freight posting, carrier matching, booking, and payments processes
+• Reduced manual processing time by 30% and improved shipper/carrier satisfaction scores by 25%
+• Conducted in-depth user research, competitive benchmarking, and customer journey mapping to shape MVP scope
+• Translated findings into 30+ user stories and epics with detailed acceptance criteria
+• Partnered with design to lead a full UI/UX revamp
+• Created high-fidelity Figma prototypes for shipper dashboards, carrier profiles, and booking flows
+• Usability testing with 40+ pilot users reduced design-to-dev rework by 30%
+• Boosted booking flow completion rates by 20%
+• Led monetization experiments including Dedicated Lanes, dynamic pricing tiers, and fast-pay programs
+• Ran A/B tests via Firebase Remote Config with performance tracked in Tableau/SQL
+• Identified the highest-ROI use case that informed long-term revenue strategy
+• Facilitated Agile ceremonies across engineering, ops, and QA
+• Increased sprint velocity by 18% and ensured timely delivery of all high-priority backlog items
+• Built interactive Tableau dashboards integrating freight, finance, and carrier data
+• Enabled leadership to monitor 10+ KPIs including booking efficiency, lane profitability, and adoption metrics`
   },
   {
     title: "The Growth Engine",
@@ -85,7 +106,71 @@ const projects: Project[] = [
       "Outstanding market research and execution",
       "Exceptional stakeholder alignment"
     ],
-    highlights: ["Market Research", "GTM Launch", "Conversion Optimization"]
+    highlights: ["Market Research", "GTM Launch", "Conversion Optimization"],
+    fullDescription: `Drove ownership of the end-to-end product roadmap at Webpipl, aligning priorities with customer needs, competitor benchmarks, and market strategy.
+
+Key Achievements:
+• Collaborated with engineering and stakeholders to define product increments
+• Leveraged Scrum metrics to improve team velocity by 20% and reduce release bottlenecks
+• Conducted large-scale user and market research analyzing 500+ competitor products
+• Surveys from 1,000+ respondents uncovered high-value GTM opportunities
+• Insights drove product-market fit, resulting in a measurable 30% uplift in adoption within 90 days of release
+• Led cross-functional squads through the complete product lifecycle
+• Managed backlog refinement, sprint planning, and release prioritization while ensuring stakeholder alignment
+• Streamlined Agile processes that improved release predictability
+• Defined pricing models and user acquisition strategies
+• Collaborated with sales and marketing to refine onboarding flows and outreach campaigns
+• Efforts contributed to 48% of all new users in H2 FY20-21
+• Significantly improved revenue pipeline and retention
+• Standardized testing frameworks for UAT and SIT across four modules
+• Reduced post-release defects and increased customer confidence in stability
+• Improved weekly conversions by 20% through enhanced product demos and targeted growth initiatives
+• Reduced average time-to-value for clients from 30 days to 12 days
+• Accelerated ROI for enterprise customers
+• Directed high-impact GTM launches for SaaS products
+• Partnered with marketing, sales, and leadership to define product vision, refine positioning, and optimize pricing
+• Orchestrated multi-channel campaigns leading to 35% faster market penetration`
+  },
+  {
+    title: "Enterprise DB2 Infrastructure",
+    company: "Capgemini",
+    period: "Aug 2018 - Mar 2020",
+    role: "Product Analyst",
+    tagline: "Modernizing enterprise infrastructure with cloud migration",
+    boxOffice: [
+      "30% improvement in system reliability",
+      "20% increase in customer retention",
+      "40% reduction in unplanned downtime"
+    ],
+    rating: 4.6,
+    reviews: [
+      "Exemplary infrastructure modernization",
+      "Data-driven process optimization"
+    ],
+    highlights: ["Cloud Migration", "Process Automation", "Performance Optimization"],
+    fullDescription: `Managed the end-to-end product lifecycle for enterprise DB2 infrastructure operations at Capgemini, driving significant improvements in system reliability and operational efficiency.
+
+Key Achievements:
+• Drove legacy-to-cloud migration resolving critical gaps in backup consistency, patching, and HADR configurations
+• Improved system reliability by 30% and ensured long-term scalability
+• Performed detailed product analytics and competitive research to identify process inefficiencies
+• Benchmarked database performance resulting in optimized query execution and workflows
+• Improved customer retention by 20% and reduced SLA breaches
+• Standardized operating procedures and documentation frameworks across database teams
+• Improved knowledge-sharing and adoption across teams
+• The initiative reduced escalation tickets by 18% and cut handover time during incident management
+• Led A/B testing and data-driven experiments on monitoring workflows
+• Measured adoption patterns and system responsiveness
+• Drove a 20% uplift in user experience and reduced unplanned downtime by 40% in four months
+• Collaborated with business stakeholders and engineering leads to define product strategies
+• Refined backlog priorities and translated customer pain points into functional requirements
+• Ensured timely delivery of database upgrades, compliance patches, and DR test cycles
+• Facilitated 7+ Joint Application Development (JAD) workshops with cross-functional stakeholders
+• Aligned technical design with business goals documented in JIRA
+• Directly influenced sprint planning and execution efficiency
+• Created wireframes, workflows, and process maps using Lucid Charts and MS Visio
+• Enabled visualization of end-to-end data flows
+• Improved operational efficiency by 35% through streamlined coordination between product and engineering teams`
   }
 ];
 
@@ -170,7 +255,7 @@ const FeatureFilms = () => {
                 </div>
 
                 {/* Highlights */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.highlights.map((highlight, idx) => (
                     <Badge 
                       key={idx} 
@@ -181,9 +266,49 @@ const FeatureFilms = () => {
                     </Badge>
                   ))}
                 </div>
+
+                {/* Full Description Button */}
+                {project.fullDescription && (
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button className="w-full bg-gradient-to-r from-primary to-primary-glow hover:shadow-[0_0_30px_rgba(220,20,60,0.5)] transition-all duration-300">
+                        View Full Work Description
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto bg-card border-primary/30">
+                      <DialogHeader>
+                        <DialogTitle className="text-2xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                          {project.title}
+                        </DialogTitle>
+                      </DialogHeader>
+                      <div className="prose prose-sm max-w-none text-muted-foreground whitespace-pre-line mt-4">
+                        {project.fullDescription}
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                )}
               </div>
             </Card>
           ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-16 max-w-4xl mx-auto text-center">
+          <Card className="p-12 bg-gradient-to-br from-card/80 via-primary/5 to-accent/5 backdrop-blur border-primary/30 shadow-[0_0_60px_rgba(220,20,60,0.2)]">
+            <h3 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+              Ready for Your Next <span className="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">Hit Product?</span>
+            </h3>
+            <p className="text-lg text-muted-foreground mb-8">
+              Let's collaborate to turn your product vision into a market-leading reality
+            </p>
+            <Button 
+              size="lg"
+              asChild
+              className="bg-gradient-to-r from-secondary to-accent text-background hover:shadow-[0_0_40px_rgba(212,175,55,0.6)] transition-all duration-300 text-lg px-8"
+            >
+              <a href="#contact">Schedule a Strategy Session</a>
+            </Button>
+          </Card>
         </div>
       </div>
     </section>

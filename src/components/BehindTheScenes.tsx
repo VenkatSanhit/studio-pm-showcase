@@ -14,7 +14,11 @@ const skills = [
       "Sprint Planning",
       "Go-to-Market Strategy",
       "Cross-functional Collaboration",
-      "Stakeholder Communication"
+      "Stakeholder Communication",
+      "UAT Planning",
+      "Risk Assessment",
+      "Backlog Grooming",
+      "Business Case Creation"
     ]
   },
   {
@@ -24,12 +28,18 @@ const skills = [
       "SQL",
       "Python (Pandas, NumPy)",
       "R",
+      "SPSS",
+      "Databricks",
       "A/B Testing",
+      "Multivariate Testing",
       "Funnel Analysis",
       "Retention & Churn Metrics",
       "Feature Adoption",
       "Cohort Analysis",
-      "KPI Tracking"
+      "KPI Tracking",
+      "Experiment Design",
+      "DAU/WAU/MAU",
+      "CLTV Analysis"
     ]
   },
   {
@@ -43,9 +53,32 @@ const skills = [
       "Power BI",
       "Amplitude",
       "Mixpanel",
+      "Heap",
       "Google Analytics",
       "Figma",
-      "Miro"
+      "Miro",
+      "Trello",
+      "Asana",
+      "Monday.com",
+      "Notion",
+      "Balsamiq",
+      "MS Excel (Advanced)",
+      "MS PowerPoint"
+    ]
+  },
+  {
+    category: "User Research & UX Insights",
+    icon: Database,
+    skills: [
+      "Persona Development",
+      "Customer Journey Mapping",
+      "Usability Testing",
+      "Surveys & Feedback Loops",
+      "Competitive Analysis",
+      "Feature Discovery",
+      "User Segmentation",
+      "Wireframing",
+      "Prototyping"
     ]
   },
   {
@@ -58,7 +91,9 @@ const skills = [
       "SQL Window Functions",
       "Time Series Analysis",
       "Data Visualization",
-      "Dashboarding"
+      "Dashboarding",
+      "Data Cleaning",
+      "Predictive Modeling"
     ]
   }
 ];
@@ -86,17 +121,13 @@ const BehindTheScenes = () => {
             <div>
               <h3 className="text-2xl font-bold mb-3 text-foreground">Director's Commentary</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                My approach to product management combines rigorous data analysis with user empathy. 
-                I believe in the power of <span className="text-accent font-semibold">OKRs</span> to align teams, 
-                <span className="text-accent font-semibold"> A/B testing</span> to validate hypotheses, 
-                and <span className="text-accent font-semibold"> Agile methodologies</span> to deliver value iteratively.
+                With 5+ years driving B2B and B2C SaaS products, I've orchestrated successful launches across enterprise infrastructure, logistics platforms, and growth-stage startups. My philosophy centers on translating complex customer needs into actionable roadmaps through data-driven decision-making and cross-functional collaboration.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                I leverage <span className="text-accent font-semibold">OKRs</span> to align stakeholders, <span className="text-accent font-semibold">A/B testing</span> to validate hypotheses, and <span className="text-accent font-semibold">Agile/Scrum methodologies</span> to deliver iterative value. From <span className="text-primary font-semibold">customer journey mapping</span> and <span className="text-primary font-semibold">persona development</span> to <span className="text-primary font-semibold">RICE prioritization</span> and <span className="text-primary font-semibold">Kanban workflows</span>, every project combines strategic thinking with tactical execution.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                From <span className="text-primary font-semibold">journey mapping</span> and 
-                <span className="text-primary font-semibold"> persona development</span> to 
-                <span className="text-primary font-semibold"> RICE prioritization</span> and 
-                <span className="text-primary font-semibold"> Kanban workflows</span>, 
-                every project is a carefully crafted story of problem-solving and innovation.
+                My impact includes increasing sprint velocity by 22%, driving 48% of new user acquisition, reducing time-to-value by 60%, and improving system reliability by 30%—all achieved through rigorous analytics, stakeholder management, and user-centered design principles.
               </p>
             </div>
           </div>
@@ -109,7 +140,7 @@ const BehindTheScenes = () => {
             return (
               <Card 
                 key={index}
-                className="p-8 bg-card/60 backdrop-blur border-border hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,188,212,0.2)] animate-fade-in-up"
+                className="p-8 bg-card/80 backdrop-blur border-border hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,188,212,0.2)] animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-center gap-4 mb-6">

@@ -1,9 +1,34 @@
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Sparkles, Rocket, Brain, Globe } from "lucide-react";
+import { Sparkles, Rocket, Brain, Globe, Film } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+
+const upcomingProjects = [
+  {
+    title: "The Emotiles Revolution",
+    description: "Advanced subtitle enhancement platform for global cinema, leveraging AI to analyze and express emotions, tone, and nuance in movie dialogue with emotive icons, dynamic backgrounds, and multilingual support",
+    stage: "In Production",
+    releaseDate: "Current Project",
+    tags: ["AI/ML", "Emotion Recognition", "Multilingual", "Accessibility", "Cinema Tech"]
+  },
+  {
+    title: "AI-Powered Analytics Dashboard",
+    description: "Next-generation product analytics platform with predictive insights and automated reporting",
+    stage: "In Development",
+    releaseDate: "Q2 2025",
+    tags: ["AI/ML", "Data Analytics", "Automation"]
+  },
+  {
+    title: "Mobile-First SaaS Platform",
+    description: "Revolutionary mobile experience for B2B SaaS with offline-first architecture",
+    stage: "Planning",
+    releaseDate: "Q3 2025",
+    tags: ["Mobile", "SaaS", "User Experience"]
+  }
+];
 
 const upcomingGoals = [
   {
@@ -58,37 +83,90 @@ const ComingSoon = () => {
             </h2>
             <Sparkles className="w-8 h-8 text-secondary animate-pulse" />
           </div>
-          <p className="text-xl text-muted-foreground">Upcoming Features & Future Goals</p>
+          <p className="text-xl text-muted-foreground">New Projects & Upcoming Teasers</p>
           <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent to-secondary mx-auto mt-6" />
         </div>
 
-        {/* Upcoming Goals */}
+        {/* Upcoming Projects */}
+        <div className="max-w-6xl mx-auto mb-16">
+          <div className="grid md:grid-cols-3 gap-6">
+            {upcomingProjects.map((project, index) => (
+              <Card 
+                key={index}
+                className="group p-6 bg-card/60 backdrop-blur border-border hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(220,20,60,0.25)] animate-fade-in-up relative overflow-hidden"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Film className="w-6 h-6 text-primary" />
+                    </div>
+                    <Badge className="bg-accent/20 text-accent border-accent/50">
+                      {project.stage}
+                    </Badge>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-1 mb-3">
+                    {project.tags.slice(0, 3).map((tag, idx) => (
+                      <Badge 
+                        key={idx}
+                        variant="secondary"
+                        className="text-xs bg-muted/50"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                  
+                  <div className="text-xs text-muted-foreground">
+                    📅 {project.releaseDate}
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Future Goals */}
         <div className="max-w-5xl mx-auto mb-16">
+          <h3 className="text-3xl font-bold text-center text-foreground mb-8">
+            Future Goals & Learning
+          </h3>
           <div className="grid md:grid-cols-3 gap-8">
             {upcomingGoals.map((goal, index) => {
               const IconComponent = goal.icon;
               return (
                 <Card 
                   key={index}
-                  className="group p-8 bg-card/60 backdrop-blur border-border hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(220,20,60,0.25)] animate-fade-in-up relative overflow-hidden"
-                  style={{ animationDelay: `${index * 0.15}s` }}
+                  className="group p-6 bg-card/60 backdrop-blur border-border hover:border-accent/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(0,188,212,0.25)] animate-fade-in-up relative overflow-hidden"
+                  style={{ animationDelay: `${index * 0.15 + 0.3}s` }}
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative z-10">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-8 h-8 text-primary" />
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent/20 to-secondary/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="w-7 h-7 text-accent" />
                     </div>
                     
-                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                    <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
                       {goal.title}
                     </h3>
                     
-                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    <p className="text-muted-foreground text-sm mb-3 leading-relaxed">
                       {goal.description}
                     </p>
                     
-                    <div className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold">
+                    <div className="inline-block px-2 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold">
                       {goal.status}
                     </div>
                   </div>
