@@ -6,10 +6,15 @@ import AwardsAndAccolades from "@/components/AwardsAndAccolades";
 import ComingSoon from "@/components/ComingSoon";
 import ContactSection from "@/components/ContactSection";
 import AIChat from "@/components/AIChat";
+import HeroMono from "@/components/mono/HeroMono";
+import MonoNav from "@/components/mono/MonoNav";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+  {/* Premium Mono Nav + Hero (example) */}
+  <MonoNav />
+  <HeroMono />
       {/* Film strip decorative borders */}
       <div className="fixed top-0 left-0 right-0 h-4 bg-border/30 z-50 pointer-events-none" />
       <div className="fixed bottom-0 left-0 right-0 h-4 bg-border/30 z-50 pointer-events-none" />

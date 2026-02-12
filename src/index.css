@@ -69,3 +69,83 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Mono Intelligence Theme - Premium (Monochrome, Brutalist, High-Contrast) */
+@layer base {
+  .theme-mono {
+    /* Core palette (H S% L%) - kept as space-separated HSL components to match tailwind config */
+    --background: 0 0% 0%; /* #000 */
+    --background-secondary: 0 0% 3%; /* very dark */
+    --popover: 0 0% 6%;
+    --foreground: 0 0% 100%; /* #fff */
+
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 100%;
+
+    --border: 0 0% 12%; /* 1px sharp borders */
+    --input: 0 0% 8%;
+    --ring: 0 0% 100%;
+
+    --primary: 358 79% 47%; /* Nothing Red #D71921 approximated */
+    --primary-foreground: 0 0% 100%;
+    --accent: 358 79% 47%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 0 0% 65%;
+    --muted-foreground: 0 0% 40%;
+
+    --radius: 0rem; /* no rounding */
+
+    /* Motion / transitions */
+    --transition-theme: background-color 0.28s cubic-bezier(.2,.9,.2,1), color 0.28s cubic-bezier(.2,.9,.2,1), border-color 0.28s cubic-bezier(.2,.9,.2,1);
+  }
+
+  /* Dot-matrix background utility */
+  .dot-matrix {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 1px), radial-gradient(circle at 6px 6px, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 8px 8px, 64px 64px;
+    background-position: 0 0, 0 0;
+    background-repeat: repeat;
+    /* visible only on large viewports */
+  }
+
+  @media (max-width: 1024px) {
+    .dot-matrix {
+      background-image: none;
+    }
+  }
+
+  /* Cursor blink used in hero */
+  @keyframes mono-blink {
+    0% { opacity: 1 }
+    49% { opacity: 1 }
+    50% { opacity: 0 }
+    100% { opacity: 0 }
+  }
+
+  /* subtle pulsing for active indicators */
+  @keyframes mono-pulse {
+    0% { transform: scale(1); opacity: 1 }
+    50% { transform: scale(1.25); opacity: 0.75 }
+    100% { transform: scale(1); opacity: 1 }
+  }
+
+  /* Accessibility: reduce motion respects */
+  @media (prefers-reduced-motion: reduce) {
+    .mono-cursor { animation: none !important }
+    .mono-pulse { animation: none !important }
+  }
+
+  /* Small helpers for mono UI components */
+  .mono-btn {
+    transition: var(--transition-theme);
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  .mono-card {
+    border-width: 1px;
+    border-style: solid;
+    background: transparent;
+  }
+}
