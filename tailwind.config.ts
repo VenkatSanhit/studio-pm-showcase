@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const plugin = require("tailwindcss/plugin");
 
 export default {
   darkMode: ["class"],
@@ -13,6 +14,23 @@ export default {
       },
     },
     extend: {
+      // 8px grid spacing scale (rem values)
+      spacing: {
+        px: '1px',
+        '0': '0px',
+        '1': '0.5rem', // 8px
+        '2': '1rem',   // 16px
+        '3': '1.5rem', // 24px
+        '4': '2rem',   // 32px
+        '5': '2.5rem', // 40px
+        '6': '3rem',   // 48px
+        '7': '3.5rem', // 56px
+        '8': '4rem',   // 64px
+      },
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular']
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -118,5 +136,22 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), plugin(function ({ addUtilities }) {
+    addUtilities({
+      ".dot-matrix": {
+        "background-image": "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 1px), radial-gradient(circle at 6px 6px, rgba(255,255,255,0.02) 1px, transparent 1px)",
+        "background-size": "8px 8px, 64px 64px",
+        "background-position": "0 0, 0 0",
+        "background-repeat": "repeat",
+      },
+      ".accent-border-top": {
+        "border-top-width": "4px",
+        "border-top-style": "solid",
+        "border-top-color": "hsl(var(--accent))",
+      },
+      ".accent-line": {
+        "box-shadow": "inset 0 4px 0 0 hsl(var(--accent))",
+      }
+    });
+  })],
 } satisfies Config;

@@ -55,6 +55,26 @@ const ThemeShowcase: React.FC = () => {
             </div>
           </CardMono>
         </section>
+
+        <section className="mt-10">
+          <h3 className="font-mono text-xs text-muted-foreground">Spacing (8px grid)</h3>
+          <div className="mt-4 flex items-center gap-4">
+            <div className="w-16 h-8 bg-border" />
+            <div className="w-32 h-8 bg-border" />
+            <div className="w-48 h-8 bg-border" />
+          </div>
+
+          <h3 className="mt-6 font-mono text-xs text-muted-foreground">Typography</h3>
+          <div className="mt-3">
+            <div className="text-2xl font-sans">Inter — Heading (2xl)</div>
+            <div className="mt-2 font-mono">JetBrains Mono — Terminal sample: npm run build</div>
+          </div>
+
+          <h3 className="mt-6 font-mono text-xs text-muted-foreground">Dot-matrix & Utilities</h3>
+          <div className="mt-3 p-6 dot-matrix border border-border">
+            This container uses the <span className="font-mono">.dot-matrix</span> utility and should be subtle on large screens.
+          </div>
+        </section>
       </div>
     </div>
   );

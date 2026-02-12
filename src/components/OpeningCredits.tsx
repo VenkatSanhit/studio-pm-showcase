@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import profileImage from "@/assets/profile.jpg";
 
+import { Button } from "@/components/ui/button";
+import profileImage from "@/assets/profile.jpg";
+
 const OpeningCredits = () => {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -83,5 +86,8 @@ const OpeningCredits = () => {
     </section>
   );
 };
+
+// OpeningCredits removed — no-op component to clear film visuals.
+const OpeningCredits = () => null;
 
 export default OpeningCredits;

@@ -25,18 +25,10 @@ const projects: Project[] = [
     role: "Product Manager",
     tagline: "Fast-tracking enterprise onboarding and deployment",
     boxOffice: [
-      "220+ enterprise users onboarded",
-      "22% increase in sprint velocity",
-      "15% improvement in customer acquisition"
-    ],
-    rating: 4.9,
-    reviews: [
-      "Streamlined deployment cycles by 2 weeks",
-      "Exceptional GTM strategy execution"
-    ],
-    highlights: ["Agile Excellence", "GTM Strategy", "Dashboard Automation"],
-    fullDescription: `Led comprehensive product management initiatives at Bulkmagic, managing complex go-live release schedules and coordinating with engineering, QA, and operations teams.
+// FeatureFilms removed — no-op to remove film-based content from the portfolio.
+const FeatureFilms = () => null;
 
+export default FeatureFilms;
 Key Achievements:
 • Spearheaded Agile and Scrum ceremonies including sprint planning, backlog grooming, and roadmap prioritization using JIRA and Confluence
 • Resulted in a 22% increase in sprint velocity and delivery of 30+ prioritized backlog items within targeted timelines
