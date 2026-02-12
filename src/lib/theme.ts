@@ -8,8 +8,8 @@ export function getInitialTheme(): Theme {
   } catch (e) {
     /* ignore */
   }
-  // default to cinema (existing)
-  return "cinema";
+  // default to mono (new premium)
+  return "mono";
 }
 
 export function applyTheme(theme: Theme) {
