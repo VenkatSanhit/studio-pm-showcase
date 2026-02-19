@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -57,9 +57,9 @@
     --gold: 43 74% 66%;
 
     /* Glow shadows */
-    --glow-red: 0 0 20px hsl(4 100% 59% / 0.4), 0 0 40px hsl(4 100% 59% / 0.15);
-    --glow-white: 0 0 15px hsl(0 0% 96% / 0.2);
-    --glow-border: 0 0 0 1px hsl(4 100% 59% / 0.5), 0 0 20px hsl(4 100% 59% / 0.1);
+    --glow-red: 0 0 20px hsl(4 100% 59% / 0.5), 0 0 50px hsl(4 100% 59% / 0.2), 0 0 100px hsl(4 100% 59% / 0.08);
+    --glow-white: 0 0 20px hsl(0 0% 96% / 0.25), 0 0 40px hsl(0 0% 96% / 0.08);
+    --glow-border: 0 0 0 1px hsl(4 100% 59% / 0.6), 0 0 30px hsl(4 100% 59% / 0.12);
 
     /* Sidebar */
     --sidebar-background: 0 0% 5%;
